@@ -41,7 +41,11 @@ export default function Navbar() {
             : "max-w-screen-xl mx-6 sm:mx-16"
         }`}
       >
-        <div className="font-bold text-xl text-black dark:text-white">Brand</div>
+       <img
+  src="passport.png"
+  alt="Logo"
+  className="w-10 h-10 rounded-full object-cover"
+/>
        <div className="flex items-center space-x-6 text-zinc-800 dark:text-zinc-200">
  {["Home", "About", "Services", "Contact"].map((item) => (
   <a
