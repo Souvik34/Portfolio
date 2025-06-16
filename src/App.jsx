@@ -3,6 +3,7 @@ import Navbar from "./components/ui/Navbar";
 import "./index.css";
 import TextFlipper from "./components/ui/TextFlipper";
 import { Mail, FileText, FolderOpen } from "lucide-react";
+import Projects from "./components/sections/Projects";
 
 export default function App() {
   return (
@@ -50,6 +51,19 @@ export default function App() {
     View Projects
   </a>
         </div>
+
+       
+
+        <div className="relative my-24 flex items-center justify-center">
+  <div className="absolute inset-0 flex items-center">
+    <div className="w-full border-t border-zinc-300 dark:border-zinc-700" />
+  </div>
+  <span className="relative z-10 px-6 text-sm font-medium uppercase tracking-wider bg-white dark:bg-zinc-950 text-zinc-500">
+    I love building things
+  </span>
+</div>
+
+ <Projects />
         <div className="h-[2000px] px-6 sm:px-24 md:px-20 bg-gradient-to-b from-transparent via-zinc-200/20 dark:via-zinc-800/20 to-transparent" />
       </main>
     </div>
