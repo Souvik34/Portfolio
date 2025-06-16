@@ -39,9 +39,7 @@ const experiences = [
 export default function Experience() {
   return (
     <section className="px-6 sm:px-10 md:px-20 pb-24">
-      <div className="relative my-10 flex items-center justify-center">
-       
-      </div>
+      <h2 className="text-4xl font-semibold mb-16 px-2">Work Experience</h2>
 
       <div className="space-y-10">
         {experiences.map((exp, i) => (

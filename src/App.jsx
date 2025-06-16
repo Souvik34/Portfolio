@@ -5,6 +5,8 @@ import TextFlipper from "./components/ui/TextFlipper";
 import { Mail, FileText, FolderOpen } from "lucide-react";
 import Projects from "./components/sections/Projects";
 import Experience from "./components/sections/Experience";
+import BlogSection from "./components/sections/Blogs";
+import TechStack from "./components/sections/Techstack";
 
 export default function App() {
   return (
@@ -82,7 +84,20 @@ export default function App() {
 
 
   <Experience />
+
+    {/* Separator */}
+  <div className="relative my-20 flex items-center justify-center">
+    <div className="absolute inset-0 flex items-center">
+      <div className="w-full border-t border-zinc-300 dark:border-zinc-700" />
+    </div>
+    <span className="relative z-10 px-6 text-xs sm:text-sm font-medium uppercase tracking-wider bg-white dark:bg-zinc-950 text-zinc-500">
+      Sharing knowledge as I learn
+    </span>
+  </div>
+
+    <BlogSection />
  
+    <TechStack />
   <div className="h-[1000px] px-6 sm:px-10 md:px-20 bg-gradient-to-b from-transparent via-zinc-200/20 dark:via-zinc-800/20 to-transparent" />
 </main>
 
