@@ -1,35 +1,45 @@
+/* eslint-disable no-unused-vars */
+import { noop } from "framer-motion";
 import { IconCloud } from "../../components/magicui/icon-cloud";
 
 const slugs = [
   "typescript",
   "javascript",
-  "dart",
   "java",
   "react",
-  "flutter",
-  "android",
   "html5",
   "css3",
-  "nodedotjs",
+  "nodejs",
   "express",
   "prisma",
   "amazonaws",
-  "postgresql",
   "firebase",
-  "nginx",
   "vercel",
-  "testinglibrary",
-  "jest",
-  "cypress",
+    "netlify",
+    "mongodb",
   "docker",
   "git",
   "jira",
   "github",
   "gitlab",
   "visualstudiocode",
-  "androidstudio",
-  "sonarqube",
+    "tailwindcss",
+    "bootstrap",
+    "sass",
+    "postman",
+    "graphql",
+    "solidity",
+    "kubernetes",
+    "C",
+  "cpp",    
+    "python",
+    ".NET",
   "figma",
+    "materialui",
+    "appwrite",
+    "linux",
+    "csharp",
+
 ];
 
 export function TechCloud() {
@@ -38,7 +48,7 @@ export function TechCloud() {
   );
 
   return (
-    <div className="relative w-[90vw] max-w-[900px] aspect-square mx-auto flex items-center justify-center overflow-hidden">
+    <div className="w-full px-4 py-8">
       <IconCloud images={images} />
     </div>
   );

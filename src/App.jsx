@@ -7,6 +7,7 @@ import Projects from "./components/sections/Projects";
 import Experience from "./components/sections/Experience";
 import BlogSection from "./components/sections/Blogs";
 import TechStack from "./components/sections/Techstack";
+import Footer from "./components/ui/Footer";
 
 export default function App() {
   return (
@@ -96,9 +97,52 @@ export default function App() {
   </div>
 
     <BlogSection />
+
+     {/* Separator */}
+  <div className="relative my-20 flex items-center justify-center">
+    <div className="absolute inset-0 flex items-center">
+      <div className="w-full border-t border-zinc-300 dark:border-zinc-700" />
+    </div>
+    <span className="relative z-10 px-6 text-xs sm:text-sm font-medium uppercase tracking-wider bg-white dark:bg-zinc-950 text-zinc-500">
+  
+    </span>
+  </div>
+
  
     <TechStack />
-  <div className="h-[1000px] px-6 sm:px-10 md:px-20 bg-gradient-to-b from-transparent via-zinc-200/20 dark:via-zinc-800/20 to-transparent" />
+
+     {/* Get in Touch Section */}
+<section
+  id="contact"
+  className="mt-32 px-4 sm:px-10 md:px-20 text-center max-w-3xl mx-auto"
+>
+
+    {/* Animated Contact Button */}
+  <div className="mb-6 flex justify-center">
+    <a
+      href="https://twitter.com/your_handle" // Replace with your actual Twitter handle
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-blue-600 text-white dark:bg-blue-500 font-medium shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300"
+    >
+      <Mail className="w-5 h-5 group-hover:animate-pulse" />
+      Contact
+    </a>
+  </div>
+  <h2 className="text-3xl sm:text-7xl font-semibold mb-6">Get in Touch</h2>
+
+
+
+  <p className="text-base sm:text-2xl text-zinc-600 dark:text-zinc-400 leading-relaxed">
+   Feel free to message me with a  <span className="text-blue-400"> specific question or idea on LinkedIn or Gmail</span>  — I’ll do my best to respond promptly. <br />
+
+    <span className="italic text-amber-300" >Solicitations and generic outreach will be ignored.</span>
+  </p>
+</section>
+
+  
+  {/* Footer */}
+  <Footer />
 </main>
 
     </div>
