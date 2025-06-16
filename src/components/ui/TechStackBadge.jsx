@@ -15,11 +15,16 @@ export default function TechStackBadge({ name, Icon, color }) {
       <motion.div
         layout
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="flex items-center px-3 py-[6px] cursor-default shadow-md"
+        className={`flex items-center justify-center px-2 py-1 cursor-default shadow-sm ${
+          hovered ? "mr-6" : "mr-2"
+        }`}
         style={{
-          borderRadius: hovered ? "1.75rem" : "9999px",
+          borderRadius: hovered ? "1.5rem" : "50%",
           backgroundColor: color,
-          minWidth: hovered ? "auto" : "32px",
+          height: "34px",
+          minWidth: hovered ? "auto" : "34px",
+          paddingRight: hovered ? "10px" : "0px",
+          paddingLeft: "10px",
         }}
       >
         <Icon size={16} className="text-white" />
