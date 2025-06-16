@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Moon, Sun, Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
+import Contact from "../../pages/Contact";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -7,23 +9,29 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const lastScrollY = useRef(0);
 
-useEffect(() => {
-  const handleScroll = () => {
-    const currentScroll = window.scrollY;
+  const navItems = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Projects", path: "/projects" },
+    { name: "Contact", path: "/contact" },
+  ];
 
-    // Only expand when at the top
-    if (currentScroll === 0) {
-      setScrolled(false);
-    } else if (currentScroll > 20) {
-      setScrolled(true);
-    }
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScroll = window.scrollY;
 
-    lastScrollY.current = currentScroll;
-  };
+      if (currentScroll === 0) {
+        setScrolled(false);
+      } else if (currentScroll > 20) {
+        setScrolled(true);
+      }
 
-  window.addEventListener("scroll", handleScroll);
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
+      lastScrollY.current = currentScroll;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -53,15 +61,15 @@ useEffect(() => {
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center space-x-6 text-zinc-800 dark:text-zinc-200">
-          {["Home", "About", "Projects", "Contact"].map((item) => (
-            <a
-              key={item}
-              href="#"
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              to={item.path}
               className="relative px-2 py-1 font-medium group"
             >
-              <span className="relative z-10">{item}</span>
+              <span className="relative z-10">{item.name}</span>
               <span className="absolute left-0 bottom-0 w-full h-full scale-x-0 group-hover:scale-x-100 bg-zinc-200/50 dark:bg-zinc-700/40 rounded-md transition-transform duration-300 ease-out origin-left z-0" />
-            </a>
+            </Link>
           ))}
           <button
             onClick={() => setDarkMode((prev) => !prev)}
@@ -100,14 +108,15 @@ useEffect(() => {
       {/* Mobile Dropdown Menu */}
       {menuOpen && (
         <div className="md:hidden absolute top-20 left-4 right-4 bg-white dark:bg-zinc-900 rounded-2xl shadow-lg p-6 space-y-4 transition-all duration-300">
-          {["Home", "About", "Projects", "Contact"].map((item) => (
-            <a
-              key={item}
-              href="#"
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              to={item.path}
               className="block text-zinc-900 dark:text-white text-lg font-medium"
+              onClick={() => setMenuOpen(false)}
             >
-              {item}
-            </a>
+              {item.name}
+            </Link>
           ))}
         </div>
       )}

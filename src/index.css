@@ -144,3 +144,19 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes fly {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(8px) translateY(-6px) rotate(10deg);
+  }
+  100% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+}
+
+.animate-fly {
+  animation: fly 1.6s ease-in-out infinite;
+}
