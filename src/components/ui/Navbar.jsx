@@ -7,20 +7,23 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const lastScrollY = useRef(0);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScroll = window.scrollY;
-      if (currentScroll > lastScrollY.current && currentScroll > 20) {
-        setScrolled(true);
-      } else if (currentScroll < lastScrollY.current) {
-        setScrolled(false);
-      }
-      lastScrollY.current = currentScroll;
-    };
+useEffect(() => {
+  const handleScroll = () => {
+    const currentScroll = window.scrollY;
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    // Only expand when at the top
+    if (currentScroll === 0) {
+      setScrolled(false);
+    } else if (currentScroll > 20) {
+      setScrolled(true);
+    }
+
+    lastScrollY.current = currentScroll;
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
 
   useEffect(() => {
     const root = document.documentElement;
