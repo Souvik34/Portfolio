@@ -143,10 +143,6 @@ export default function Home() {
     <span className="italic text-amber-300" >Solicitations and generic outreach will be ignored.</span>
   </p>
 </section>
-
-  
-  {/* Footer */}
-  <Footer />
 </main>
 
     </div>

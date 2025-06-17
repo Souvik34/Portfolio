@@ -126,7 +126,7 @@ export default function Contact() {
         {/* Globe Section */}
         <div className="hidden lg:flex items-center justify-center w-full max-w-md relative rounded-lg px-10 pb-40 overflow-hidden">
           <Globe className="top-2" />
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_200%,rgba(0,0,0,0.2),rgba(255,255,255,0))]" />
+          <div className="pointer-events-none absolute inset-0 " />
         </div>
       </div>
     </div>

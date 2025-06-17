@@ -7,6 +7,7 @@ import Contact from "./pages/Contact";
 import Projects from "./pages/Projects";
 import About from "./pages/About";
 import { Toaster } from "react-hot-toast";
+import Footer from "./components/ui/Footer";
 
 export default function App() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
+      <Footer />
     </div>
     </>
   );

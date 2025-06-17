@@ -71,16 +71,17 @@ export default function Navbar() {
               <span className="absolute left-0 bottom-0 w-full h-full scale-x-0 group-hover:scale-x-100 bg-zinc-200/50 dark:bg-zinc-700/40 rounded-md transition-transform duration-300 ease-out origin-left z-0" />
             </Link>
           ))}
-          <button
-            onClick={() => setDarkMode((prev) => !prev)}
-            className="p-2 rounded-full relative overflow-hidden transition-transform duration-300 ease-in-out hover:scale-110 active:scale-95 hover:bg-zinc-300/20 dark:hover:bg-zinc-700/20"
-            aria-label="Toggle Dark Mode"
-          >
-            <span className="absolute inset-0 rounded-full animate-ping bg-zinc-400/10 dark:bg-zinc-600/10"></span>
-            <span className="relative z-10">
-              {darkMode ? <Sun size={18} /> : <Moon size={18} />}
-            </span>
-          </button>
+        <button
+  onClick={() => setDarkMode((prev) => !prev)}
+  className="p-2 rounded-full relative transition-transform duration-300 ease-in-out hover:scale-110 active:scale-95 hover:bg-zinc-300/20 dark:hover:bg-zinc-700/20"
+  aria-label="Toggle Dark Mode"
+>
+  <span className="absolute inset-0 rounded-full bg-zinc-400/10 dark:bg-zinc-600/10 opacity-0 group-hover:opacity-100 group-hover:animate-ping"></span>
+  <span className="relative z-10 flex items-center justify-center">
+    {darkMode ? <Sun size={18} /> : <Moon size={18} />}
+  </span>
+</button>
+
         </div>
 
         {/* Mobile Hamburger */}

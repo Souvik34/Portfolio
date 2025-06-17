@@ -11,7 +11,7 @@ function easeOutCubic(t) {
 export function IconCloud({ icons, images }) {
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
-  const [size, setSize] = useState(100);
+  const [size, setSize] = useState(300);
   const [iconPositions, setIconPositions] = useState([]);
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
@@ -25,16 +25,26 @@ export function IconCloud({ icons, images }) {
 
   useEffect(() => {
     const updateSize = () => {
-      const container = containerRef.current;
-      if (container) {
-        setSize(container.offsetWidth);
-      }
+      const width = window.innerWidth;
+
+      if (width < 400) setSize(200);
+      else if (width < 640) setSize(300);
+      else if (width < 1024) setSize(400);
+      else setSize(500);
     };
 
     updateSize();
     window.addEventListener("resize", updateSize);
     return () => window.removeEventListener("resize", updateSize);
   }, []);
+
+  const getResponsiveRadius = () => {
+    const width = window.innerWidth;
+    if (width < 400) return 80;
+    if (width < 640) return 120;
+    if (width < 1024) return 160;
+    return 200;
+  };
 
   useEffect(() => {
     if (!icons && !images) return;
@@ -85,7 +95,7 @@ export function IconCloud({ icons, images }) {
     const items = icons || images || [];
     const newIcons = [];
     const numIcons = items.length || 20;
-    const sphereRadius = 200; // Increased radius
+    const sphereRadius = getResponsiveRadius();
 
     const offset = 2 / numIcons;
     const increment = Math.PI * (3 - Math.sqrt(5));
@@ -109,59 +119,9 @@ export function IconCloud({ icons, images }) {
     }
 
     setIconPositions(newIcons);
-  }, [icons, images]);
+  }, [icons, images, size]);
 
   const handleMouseDown = (e) => {
-    const rect = canvasRef.current?.getBoundingClientRect();
-    if (!rect || !canvasRef.current) return;
-
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const ctx = canvasRef.current.getContext("2d");
-    if (!ctx) return;
-
-    iconPositions.forEach((icon) => {
-      const cosX = Math.cos(rotationRef.current.x);
-      const sinX = Math.sin(rotationRef.current.x);
-      const cosY = Math.cos(rotationRef.current.y);
-      const sinY = Math.sin(rotationRef.current.y);
-
-      const rotatedX = icon.x * cosY - icon.z * sinY;
-      const rotatedZ = icon.x * sinY + icon.z * cosY;
-      const rotatedY = icon.y * cosX + rotatedZ * sinX;
-
-      const screenX = canvasRef.current.width / 2 + rotatedX;
-      const screenY = canvasRef.current.height / 2 + rotatedY;
-
-      const scale = (rotatedZ + 300) / 400;
-      const radius = 30 * scale;
-      const dx = x - screenX;
-      const dy = y - screenY;
-
-      if (dx * dx + dy * dy < radius * radius) {
-        const targetX = -Math.atan2(icon.y, Math.sqrt(icon.x * icon.x + icon.z * icon.z));
-        const targetY = Math.atan2(icon.x, icon.z);
-
-        const currentX = rotationRef.current.x;
-        const currentY = rotationRef.current.y;
-        const distance = Math.sqrt(Math.pow(targetX - currentX, 2) + Math.pow(targetY - currentY, 2));
-
-        const duration = Math.min(2000, Math.max(800, distance * 500));
-
-        setTargetRotation({
-          x: targetX,
-          y: targetY,
-          startX: currentX,
-          startY: currentY,
-          distance,
-          startTime: performance.now(),
-          duration,
-        });
-        return;
-      }
-    });
-
     setIsDragging(true);
     setLastMousePos({ x: e.clientX, y: e.clientY });
   };
@@ -207,18 +167,7 @@ export function IconCloud({ icons, images }) {
       const distance = Math.sqrt(dx * dx + dy * dy);
       const speed = 0.003 + (distance / maxDistance) * 0.01;
 
-      if (targetRotation) {
-        const elapsed = performance.now() - targetRotation.startTime;
-        const progress = Math.min(1, elapsed / targetRotation.duration);
-        const easedProgress = easeOutCubic(progress);
-
-        rotationRef.current = {
-          x: targetRotation.startX + (targetRotation.x - targetRotation.startX) * easedProgress,
-          y: targetRotation.startY + (targetRotation.y - targetRotation.startY) * easedProgress,
-        };
-
-        if (progress >= 1) setTargetRotation(null);
-      } else if (!isDragging) {
+      if (!isDragging) {
         rotationRef.current = {
           x: rotationRef.current.x + (dy / canvas.height) * speed,
           y: rotationRef.current.y + (dx / canvas.width) * speed,
@@ -260,10 +209,14 @@ export function IconCloud({ icons, images }) {
     return () => {
       if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
     };
-  }, [icons, images, iconPositions, isDragging, mousePos, targetRotation, size]);
+  }, [icons, images, iconPositions, isDragging, mousePos, size]);
 
   return (
-    <div ref={containerRef} className="w-full max-w-[500px] aspect-square mx-auto">
+    <div
+      ref={containerRef}
+      className="mx-auto"
+      style={{ width: size, height: size }}
+    >
       <canvas
         ref={canvasRef}
         width={size}
