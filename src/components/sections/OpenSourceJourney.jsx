@@ -3,8 +3,8 @@ import { FaStar, FaCodeBranch, FaExternalLinkAlt } from "react-icons/fa";
 
 const openSourceProjects = [
   {
-    name: "Hoppscotch",
-    repo: "hoppscotch/hoppscotch",
+    name: "Kharagpur Winter of Code, IIT KGP",
+    repo: "adf",
     logo: "/hoppscotch.png",
     stars: "58.2k",
     contributions: "5 PRs",
@@ -12,7 +12,7 @@ const openSourceProjects = [
     link: "https://github.com/hoppscotch/hoppscotch",
   },
   {
-    name: "Appwrite",
+    name: "Aperte, AOT",
     repo: "appwrite/appwrite",
     logo: "/appwrite.png",
     stars: "35.1k",
@@ -21,7 +21,7 @@ const openSourceProjects = [
     link: "https://github.com/appwrite/appwrite",
   },
   {
-    name: "EddieHub",
+    name: "GirlScript Summer of Code",
     repo: "EddieHubCommunity",
     logo: "/eddiehub.png",
     stars: "12.8k",

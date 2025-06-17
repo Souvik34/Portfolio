@@ -102,16 +102,7 @@ export default function Home() {
     <BlogSection />
 
 
-    {/* Separator */}
-  <div className="relative my-20 flex items-center justify-center">
-    <div className="absolute inset-0 flex items-center">
-      <div className="w-full border-t border-zinc-300 dark:border-zinc-700" />
-    </div>
-    <span className="relative z-10 px-6 text-xs sm:text-sm font-medium uppercase tracking-wider bg-white dark:bg-zinc-950 text-zinc-500">
-      My Contributions
-    </span>
-  </div>
-  <GitHubCalendar />
+  
 
 
      {/* Separator */}
@@ -119,7 +110,7 @@ export default function Home() {
     <div className="absolute inset-0 flex items-center">
       <div className="w-full border-t border-zinc-300 dark:border-zinc-700" />
     </div>
-    <span className="relative z-10 px-6 text-xs sm:text-sm font-medium uppercase tracking-wider bg-white dark:bg-zinc-950 text-zinc-500">
+    <span className="relative z-10 px-6 text-xs sm:text-sm font-medium uppercase tracking-wider bg-white dark:bg-zinc-950 text-zinc-500"> My tools & Technologies
   
     </span>
   </div>
@@ -140,7 +131,16 @@ export default function Home() {
   
   <OpenSourceJourney />
 
-  
+    {/* Separator */}
+  <div className="relative my-20 flex items-center justify-center">
+    <div className="absolute inset-0 flex items-center">
+      <div className="w-full border-t border-zinc-300 dark:border-zinc-700" />
+    </div>
+    <span className="relative z-10 px-6 text-xs sm:text-sm font-medium uppercase tracking-wider bg-white dark:bg-zinc-950 text-zinc-500">
+      My Contributions
+    </span>
+  </div>
+  <GitHubCalendar />
 
      {/* Get in Touch Section */}
 <section
