@@ -4,6 +4,7 @@ import Education from "../data/Education";
 import skills from "../data/Skills";
 import { CheckCircle } from "lucide-react";
 import SkillCard from "../components/ui/SkillCard";
+import {DraggableCard} from "../components/ui/DraggableCard";
 
 // Animation Variants
 const fadeInUp = {
@@ -91,7 +92,23 @@ export default function About() {
             ))}
           </div>
         </motion.div>
+
+         {/* Draggable Cards */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        >
+          <h3 className="text-2xl font-semibold text-zinc-800 dark:text-zinc-200 mb-8 text-center">
+            Characters & Places That Inspire Me
+          </h3>
+          <DraggableCard />
+        </motion.div>
       </div>
+
+      
     </section>
+     
   );
 }
