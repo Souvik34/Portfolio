@@ -4,6 +4,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { renderToString } from "react-dom/server";
 
+// Helper to detect mobile screens
+const isMobile = () => typeof window !== "undefined" && window.innerWidth < 640;
+
 function easeOutCubic(t) {
   return 1 - Math.pow(1 - t, 3);
 }
@@ -26,7 +29,6 @@ export function IconCloud({ icons, images }) {
   useEffect(() => {
     const updateSize = () => {
       const width = window.innerWidth;
-
       if (width < 400) setSize(200);
       else if (width < 640) setSize(300);
       else if (width < 1024) setSize(400);
@@ -53,9 +55,10 @@ export function IconCloud({ icons, images }) {
     imagesLoadedRef.current = new Array(items.length).fill(false);
 
     const newIconCanvases = items.map((item, index) => {
+      const iconSize = isMobile() ? 40 : 60;
       const offscreen = document.createElement("canvas");
-      offscreen.width = 60;
-      offscreen.height = 60;
+      offscreen.width = iconSize;
+      offscreen.height = iconSize;
       const offCtx = offscreen.getContext("2d");
 
       if (offCtx) {
@@ -64,21 +67,21 @@ export function IconCloud({ icons, images }) {
           img.crossOrigin = "anonymous";
           img.src = items[index];
           img.onload = () => {
-            offCtx.clearRect(0, 0, offscreen.width, offscreen.height);
+            offCtx.clearRect(0, 0, iconSize, iconSize);
             offCtx.beginPath();
-            offCtx.arc(30, 30, 30, 0, Math.PI * 2);
+            offCtx.arc(iconSize / 2, iconSize / 2, iconSize / 2, 0, Math.PI * 2);
             offCtx.closePath();
             offCtx.clip();
-            offCtx.drawImage(img, 0, 0, 60, 60);
+            offCtx.drawImage(img, 0, 0, iconSize, iconSize);
             imagesLoadedRef.current[index] = true;
           };
         } else {
-          offCtx.scale(0.6, 0.6);
+          offCtx.scale(iconSize / 100, iconSize / 100);
           const svgString = renderToString(item);
           const img = new Image();
           img.src = "data:image/svg+xml;base64," + btoa(svgString);
           img.onload = () => {
-            offCtx.clearRect(0, 0, offscreen.width, offscreen.height);
+            offCtx.clearRect(0, 0, iconSize, iconSize);
             offCtx.drawImage(img, 0, 0);
             imagesLoadedRef.current[index] = true;
           };
@@ -187,15 +190,15 @@ export function IconCloud({ icons, images }) {
         const scale = (rotatedZ + 300) / 400;
         const opacity = Math.max(0.2, Math.min(1, (rotatedZ + 250) / 300));
 
+        const iconSize = isMobile() ? 40 : 60;
+
         ctx.save();
         ctx.translate(canvas.width / 2 + rotatedX, canvas.height / 2 + rotatedY);
         ctx.scale(scale, scale);
         ctx.globalAlpha = opacity;
 
-        if (icons || images) {
-          if (iconCanvasesRef.current[index] && imagesLoadedRef.current[index]) {
-            ctx.drawImage(iconCanvasesRef.current[index], -30, -30, 60, 60);
-          }
+        if (iconCanvasesRef.current[index] && imagesLoadedRef.current[index]) {
+          ctx.drawImage(iconCanvasesRef.current[index], -iconSize / 2, -iconSize / 2, iconSize, iconSize);
         }
 
         ctx.restore();

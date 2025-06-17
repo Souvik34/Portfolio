@@ -13,7 +13,7 @@ import Contact from "../pages/Contact";
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-zinc-900 dark:bg-zinc-950 dark:text-white transition-colors duration-300">
-      <Navbar />
+      
     <main className="pt-24 px-4 sm:px-6 md:px-7 lg:px-8">
 
     
