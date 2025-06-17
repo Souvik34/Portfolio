@@ -37,39 +37,48 @@ export default function About() {
         </motion.div>
 
         {/* Education */}
-        <div className="space-y-12">
-          <h3 className="text-2xl font-semibold text-zinc-800 dark:text-zinc-200">Education</h3>
-          {Education.map((item, index) => {
-            const ref = useRef(null);
-            const isInView = useInView(ref, { once: true, amount: 0.3 });
+   <div className="space-y-12">
+  <h3 className="text-2xl font-semibold text-zinc-800 dark:text-zinc-200">Education</h3>
+  {Education.map((item, index) => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, amount: 0.3 });
 
-            return (
-              <motion.div
-                ref={ref}
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="relative"
-              >
-                {/* Year Bar */}
-                <div className="bg-blue-500 dark:bg-blue-400 text-white px-4 py-2 rounded-md w-fit font-semibold text-lg">
-                  {item.year}
-                </div>
-
-                {/* Tick + Content */}
-                <div className="flex items-start gap-4 mt-2 pl-1 sm:pl-4">
-                  <CheckCircle className="text-blue-500 dark:text-blue-400 mt-1" size={20} />
-                  <div className="text-zinc-700 dark:text-zinc-300">
-                    <h3 className="font-semibold text-lg">{item.title}</h3>
-                    <p className="text-sm text-zinc-500 dark:text-zinc-400">{item.institution}</p>
-                    <p className="mt-1 text-sm">{item.description}</p>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
+    return (
+      <motion.div
+        ref={ref}
+        key={index}
+        initial={{ opacity: 0, y: 40 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="relative"
+      >
+        {/* Year Bar */}
+        <div className="bg-blue-500 dark:bg-blue-400 text-white px-4 py-2 rounded-md w-fit font-semibold text-lg">
+          {item.year}
         </div>
+
+        {/* Logo + Content */}
+        <div className="flex items-start gap-4 mt-2 pl-1 sm:pl-4">
+          {item.logo && (
+            <img
+              src={item.logo}
+              alt={`${item.institution} logo`}
+              className="w-12 h-12 object-contain rounded-md border shadow-sm"
+            />
+          )}
+
+          <div className="text-zinc-700 dark:text-zinc-300">
+            <h3 className="font-semibold text-lg">{item.title}</h3>
+            <p className="text-sm text-zinc-500 dark:text-zinc-400">{item.institution}</p>
+            <p className="mt-1 text-sm">{item.description}</p>
+          </div>
+        </div>
+      </motion.div>
+    );
+  })}
+</div>
+
+
 
         {/* Skills */}
         <motion.div

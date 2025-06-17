@@ -108,7 +108,7 @@ export const DraggableCardBody = ({ className, children }) => {
       style={{ rotateX, rotateY, opacity, willChange: "transform" }}
       animate={controls}
       whileHover={{ scale: 1.02 }}
-      className={cn("relative min-h-96 w-80 rounded-md bg-neutral-100 p-6 shadow-2xl transform-3d dark:bg-neutral-900", className)}
+      className={cn("relative min-h-48 w-80 rounded-md bg-neutral-100 p-6 shadow-2xl transform-3d dark:bg-neutral-900", className)}
     >
       {children}
       <motion.div style={{ opacity: glareOpacity }} className="pointer-events-none absolute inset-0 bg-white select-none" />
@@ -161,14 +161,19 @@ export function DraggableCard() {
 
   return (
     <DraggableCardContainer className="min-h-screen w-full items-center justify-center overflow-clip">
-      <p className="absolute top-1/2 mx-auto max-w-sm -translate-y-3/4 text-center text-2xl font-black text-neutral-400 md:text-4xl dark:text-neutral-800">
-        If it's your first day at Fight Club, you have to fight.
-      </p>
+    
       {items.map((item) => (
-        <DraggableCardBody key={item.title} className={item.className}>
-          <img src={item.image} alt={item.title} className="pointer-events-none relative z-10 h-80 w-80 object-cover" />
-          <h3 className="mt-4 text-center text-2xl font-bold text-neutral-700 dark:text-neutral-300">{item.title}</h3>
-        </DraggableCardBody>
+       <DraggableCardBody key={item.title} className={item.className}>
+  <img
+    src={item.image}
+    alt={item.title}
+    className="pointer-events-none relative z-10 h-48 w-[22rem] object-cover rounded-md"
+  />
+  <h3 className="mt-3 text-center text-xl font-semibold text-neutral-700 dark:text-neutral-300">
+    {item.title}
+  </h3>
+</DraggableCardBody>
+
       ))}
     </DraggableCardContainer>
   );

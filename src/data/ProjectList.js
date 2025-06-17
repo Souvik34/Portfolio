@@ -1,15 +1,15 @@
 const ProjectList = [
   {
-    title: "Task Tracker App",
-    description: "A MERN-powered task manager with JWT auth and drag-drop UX.",
-    image: "https://via.placeholder.com/600x300?text=Task+Tracker",
-    github: "https://github.com/yourname/task-tracker"
+    title: "TaskMate",
+    description: "TaskMate - A simple and efficient to-do list app to organize your tasks, set priorities, and stay productive. Keep track of your daily goals with an intuitive and user-friendly interface.",
+    image: "./taskmate.png",
+    github: "https://github.com/Souvik34/TaskMate"
   },
   {
-    title: "Recipe Finder",
-    description: "Search and save recipes using the Spoonacular API. Built in React.",
+    title: "Scribbly",
+    description: "Scribbly - A secure and simple Notes API built with Node.js, Express, and MongoDB. Features JWT authentication, CRUD operations, and user-specific data management for a seamless note-taking experience.",
     image: "https://via.placeholder.com/600x300?text=Recipe+Finder",
-    github: "https://github.com/yourname/recipe-finder"
+    github: "https://github.com/Souvik34/Scribbly"
   },
   {
     title: "Dev Portfolio",
