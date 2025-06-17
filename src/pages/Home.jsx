@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../components/ui/Navbar";
 import "../index.css"; // Ensure global styles are imported
 import TextFlipper from "../components/ui/TextFlipper";
 import { Mail, FileText, FolderOpen } from "lucide-react";
@@ -7,9 +6,9 @@ import Projects from "../components/sections/Projects";
 import Experience from "../components/sections/Experience";
 import BlogSection from "../components/sections/Blogs";
 import TechStack from "../components/sections/Techstack";
-import Footer from "../components/ui/Footer";
 import Contact from "../pages/Contact";
-
+import GitHubCalendar from "../components/ui/GitHubCalendar";
+import OpenSourceJourney from "../components/sections/OpenSourceJourney";
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-zinc-900 dark:bg-zinc-950 dark:text-white transition-colors duration-300">
@@ -102,6 +101,19 @@ export default function Home() {
 
     <BlogSection />
 
+
+    {/* Separator */}
+  <div className="relative my-20 flex items-center justify-center">
+    <div className="absolute inset-0 flex items-center">
+      <div className="w-full border-t border-zinc-300 dark:border-zinc-700" />
+    </div>
+    <span className="relative z-10 px-6 text-xs sm:text-sm font-medium uppercase tracking-wider bg-white dark:bg-zinc-950 text-zinc-500">
+      My Contributions
+    </span>
+  </div>
+  <GitHubCalendar />
+
+
      {/* Separator */}
   <div className="relative my-20 flex items-center justify-center">
     <div className="absolute inset-0 flex items-center">
@@ -114,6 +126,21 @@ export default function Home() {
 
  
     <TechStack />
+
+
+     {/* Separator */}
+  <div className="relative my-20 flex items-center justify-center">
+    <div className="absolute inset-0 flex items-center">
+      <div className="w-full border-t border-zinc-300 dark:border-zinc-700" />
+    </div>
+    <span className="relative z-10 px-6 text-xs sm:text-sm font-medium uppercase tracking-wider bg-white dark:bg-zinc-950 text-zinc-500">
+      My Journey
+    </span>
+  </div>
+  
+  <OpenSourceJourney />
+
+  
 
      {/* Get in Touch Section */}
 <section

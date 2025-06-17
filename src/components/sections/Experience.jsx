@@ -1,10 +1,9 @@
-// src/components/sections/ExperienceSection.jsx
 import React from "react";
 
 const experiences = [
   {
     org: "Coding Junction",
-    logo: "/logos/coding-junction.png",
+    logo: "/cj.png",
     role: "Executive Web Developer & Web3 Lead",
     duration: "Oct 2022 – Present · 2 yrs 9 mos",
     location: "UIT Burdwan · On-site",
@@ -12,7 +11,7 @@ const experiences = [
   },
   {
     org: "Cloud Native Hooghly",
-    logo: "/logos/cnh.png",
+    logo: "/cnh.jpg",
     role: "Core Technical Member",
     duration: "May 2024 – Present · 1 yr 2 mos",
     location: "India",
@@ -20,7 +19,7 @@ const experiences = [
   },
   {
     org: "Indian Railways",
-    logo: "/logos/railways.png",
+    logo: "/rail.jpg",
     role: "MERN Stack Intern",
     duration: "Jun 2024 – Jul 2024 · 2 mos",
     location: "East Coast Railways · On-site",
@@ -28,7 +27,7 @@ const experiences = [
   },
   {
     org: "Rise In",
-    logo: "/logos/risein.png",
+    logo: "/risein.png",
     role: "Campus Maven",
     duration: "Nov 2023 – Aug 2024 · 10 mos",
     location: "India · On-site",
@@ -46,7 +45,17 @@ export default function Experience() {
           <div key={i} className="flex flex-col md:flex-row md:justify-between md:items-start gap-6">
             {/* Left: Logo & Role */}
             <div className="flex items-start gap-4">
-              <img src={exp.logo} alt={exp.org} className="w-12 h-12 rounded-full object-cover" />
+              {/* Colorful ring around logo */}
+              <div className="relative w-14 h-14 rounded-full p-[2px] bg-gradient-to-tr from-pink-500 via-blue-500 to-purple-500 animate-spin-slow">
+                <div className="bg-white dark:bg-zinc-900 rounded-full w-full h-full flex items-center justify-center">
+                  <img
+                    src={exp.logo}
+                    alt={exp.org}
+                    className="w-12 h-12 rounded-full object-cover"
+                  />
+                </div>
+              </div>
+
               <div>
                 <h3 className="text-xl font-semibold">{exp.role}</h3>
                 <p className="text-sm text-zinc-500">{exp.org} · {exp.location}</p>

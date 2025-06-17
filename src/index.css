@@ -160,3 +160,20 @@ body {
 .animate-fly {
   animation: fly 1.6s ease-in-out infinite;
 }
+
+
+/* Snake Path Animation */
+@keyframes moveSnake {
+  0% {
+    stroke-dashoffset: 800;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.snake-path {
+  stroke-dasharray: 800;
+  stroke-dashoffset: 800;
+  animation: moveSnake 6s linear infinite;
+}
