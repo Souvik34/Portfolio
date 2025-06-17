@@ -1,12 +1,14 @@
 import React from "react";
 import "../index.css"; // Ensure global styles are imported
 import TextFlipper from "../components/ui/TextFlipper";
+import { Link } from "react-router-dom";
 import { Mail, FileText, FolderOpen } from "lucide-react";
-import Projects from "../components/sections/Projects";
+import Projectsection from "../components/sections/Projectsection";
 import Experience from "../components/sections/Experience";
 import BlogSection from "../components/sections/Blogs";
 import TechStack from "../components/sections/Techstack";
-import Contact from "../pages/Contact";
+import Contact from "../pages/Contact"
+import Projects from "../pages/Projects";
 import GitHubCalendar from "../components/ui/GitHubCalendar";
 import OpenSourceJourney from "../components/sections/OpenSourceJourney";
 export default function Home() {
@@ -35,13 +37,14 @@ export default function Home() {
 
   {/* Buttons */}
   <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 px-4 sm:px-10 mb-16">
-    <a
-      href="#contact"
+    <Link
+      to="/contact"
+      href=""
       className="group inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-blue-600 text-white dark:bg-blue-500 font-medium shadow hover:scale-105 transition-transform duration-300"
     >
       <Mail className="w-5 h-5 text-white group-hover:animate-pulse" />
       Get in Touch
-    </a>
+    </Link>
 
     <a
       href="/resume.pdf"
@@ -53,13 +56,13 @@ export default function Home() {
       View Resume
     </a>
 
-    <a
-      href="#projects"
-      className="group inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-purple-600 text-white dark:bg-purple-500 font-medium shadow hover:scale-105 transition-transform duration-300"
-    >
-      <FolderOpen className="w-5 h-5 text-white group-hover:animate-pulse" />
-      View Projects
-    </a>
+    <Link
+  to="/projects"
+  className="group inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-purple-600 text-white dark:bg-purple-500 font-medium shadow hover:scale-105 transition-transform duration-300"
+>
+  <FolderOpen className="w-5 h-5 text-white group-hover:animate-pulse" />
+  View Projects
+</Link>
   </div>
 
   {/* Separator */}
@@ -73,7 +76,7 @@ export default function Home() {
   </div>
 
   {/* Projects Section */}
-  <Projects />
+  <Projectsection />
 
 
    {/* Separator */}
@@ -150,15 +153,16 @@ export default function Home() {
 
     {/* Animated Contact Button */}
   <div className="mb-6 flex justify-center">
-    <a
-      href="https://twitter.com/your_handle" // Replace with your actual Twitter handle
+    <Link 
+    to = "/contact"
+    href="" // Replace with your actual Twitter handle
       target="_blank"
       rel="noopener noreferrer"
       className="group inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-blue-600 text-white dark:bg-blue-500 font-medium shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300"
     >
       <Mail className="w-5 h-5 group-hover:animate-pulse" />
       Contact
-    </a>
+    </Link>
   </div>
   <h2 className="text-3xl sm:text-7xl font-semibold mb-6">Get in Touch</h2>
 
