@@ -2,15 +2,11 @@
 
 import React, { useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
+import { Calendar } from "lucide-react"; 
 import {
-  IoMailOutline,
-  IoLogoLinkedin,
-  IoLogoTwitter,
-  IoLogoGithub,
   IoSend,
   IoPaperPlaneSharp,
 } from "react-icons/io5";
-import { SiDiscord, SiHashnode } from "react-icons/si";
 import { Globe } from "../components/magicui/globe";
 
 export default function Contact() {
@@ -112,21 +108,22 @@ export default function Contact() {
             Send Message
           </button>
 
-          {/* Social Icons */}
-          <div className="mt-8 flex gap-5 text-zinc-500 dark:text-zinc-400">
-            <a href="mailto:youremail@gmail.com" className="hover:text-red-400" aria-label="Email"><IoMailOutline className="w-5 h-5" /></a>
-            <a href="https://linkedin.com/in/yourprofile" className="hover:text-blue-600" aria-label="LinkedIn"><IoLogoLinkedin className="w-5 h-5" /></a>
-            <a href="https://twitter.com/yourhandle" className="hover:text-sky-500" aria-label="Twitter"><IoLogoTwitter className="w-5 h-5" /></a>
-            <a href="https://discord.com/users/yourid" className="hover:text-indigo-400" aria-label="Discord"><SiDiscord className="w-5 h-5" /></a>
-            <a href="https://github.com/yourusername" className="hover:text-black dark:hover:text-white" aria-label="GitHub"><IoLogoGithub className="w-5 h-5" /></a>
-            <a href="https://hashnode.com/@yourhandle" className="hover:text-blue-500" aria-label="Hashnode"><SiHashnode className="w-5 h-5" /></a>
-          </div>
+          {/* CTA Button */}
+          <a
+  href="https://calendly.com/yourusername/meeting" // 
+  target="_blank"
+  rel="noopener noreferrer"
+  className="group inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-blue-600 text-blue-600 dark:border-blue-400 dark:text-blue-400 font-medium hover:bg-blue-50 dark:hover:bg-zinc-900 transition-colors duration-300"
+>
+  <Calendar className="w-5 h-5 group-hover:animate-spin-slow" />
+  Schedule a Meet
+</a>
         </form>
 
         {/* Globe Section */}
         <div className="hidden lg:flex items-center justify-center w-full max-w-md relative rounded-lg px-10 pb-40 overflow-hidden">
           <Globe className="top-2" />
-          <div className="pointer-events-none absolute inset-0 " />
+          <div className="pointer-events-none absolute inset-0" />
         </div>
       </div>
     </div>

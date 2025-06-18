@@ -1,5 +1,5 @@
 import React from "react";
-import "../index.css"; // Ensure global styles are imported
+import "../index.css";
 import TextFlipper from "../components/ui/TextFlipper";
 import { Link } from "react-router-dom";
 import { Mail, FileText, FolderOpen } from "lucide-react";
@@ -8,9 +8,10 @@ import Experience from "../components/sections/Experience";
 import BlogSection from "../components/sections/Blogs";
 import TechStack from "../components/sections/Techstack";
 import Contact from "../pages/Contact"
+import { Calendar } from "lucide-react"; 
 import Projects from "../pages/Projects";
 import GitHubCalendar from "../components/ui/GitHubCalendar";
-import OpenSourceJourney from "../components/sections/OpenSourceJourney";
+import Highlights from "../components/sections/Highlights";
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-zinc-900 dark:bg-zinc-950 dark:text-white transition-colors duration-300">
@@ -132,7 +133,7 @@ export default function Home() {
     </span>
   </div>
   
-  <OpenSourceJourney />
+ <Highlights />
 
     {/* Separator */}
   <div className="relative my-20 flex items-center justify-center">
@@ -173,6 +174,15 @@ export default function Home() {
 
     <span className="italic text-amber-300" >Solicitations and generic outreach will be ignored.</span>
   </p>
+  <a
+  href="https://calendly.com/yourusername/meeting" // 
+  target="_blank"
+  rel="noopener noreferrer"
+  className="group inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-blue-600 text-blue-600 dark:border-blue-400 dark:text-blue-400 font-medium hover:bg-blue-50 dark:hover:bg-zinc-900 transition-colors duration-300"
+>
+  <Calendar className="w-5 h-5 group-hover:animate-spin-slow" />
+  Schedule a Meet
+</a>
 </section>
 </main>
 

@@ -5,6 +5,8 @@ import skills from "../data/Skills";
 import { CheckCircle } from "lucide-react";
 import SkillCard from "../components/ui/SkillCard";
 import {DraggableCard} from "../components/ui/DraggableCard";
+import JourneyHighlights from "../components/sections/JourneyHighlights";
+
 
 // Animation Variants
 const fadeInUp = {
@@ -101,6 +103,10 @@ export default function About() {
             ))}
           </div>
         </motion.div>
+
+        {/* Journey & Involvements */}
+<JourneyHighlights />
+
 
          {/* Draggable Cards */}
         <motion.div

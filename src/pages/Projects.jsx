@@ -4,6 +4,7 @@ import ProjectCard from "../components/ui/ProjectCard";
 import { motion } from "framer-motion";
 import ProjectList from "../data/ProjectList"; 
 import Footer from "../components/ui/Footer";
+
 const containerVariants = {
   hidden: {},
   visible: {
@@ -57,13 +58,13 @@ export default function Projects() {
                 description={project.description}
                 image={project.image}
                 github={project.github}
+                techStack={project.techStack}
                 showSource={true}
               />
             </motion.div>
           ))}
         </motion.div>
       </div>
-    
     </section>
   );
 }

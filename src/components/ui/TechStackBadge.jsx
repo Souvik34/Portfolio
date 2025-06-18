@@ -16,26 +16,22 @@ export default function TechStackBadge({ name, Icon, color }) {
       <motion.div
         layout
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className={`flex items-center justify-center px-2 py-1 cursor-default shadow-sm ${
-          hovered ? "mr-6" : "mr-2"
-        }`}
+        className="flex items-center justify-center cursor-default shadow-sm"
         style={{
           borderRadius: hovered ? "1.5rem" : "50%",
           backgroundColor: color,
           height: "34px",
+          padding: "0 10px",
+          gap: hovered ? "6px" : "0px",
           minWidth: hovered ? "auto" : "34px",
-          paddingRight: hovered ? "10px" : "0px",
-          paddingLeft: "10px",
         }}
       >
-        <Icon size={16} className="text-white" />
-
+        {Icon && <Icon size={16} className="text-white" />}
         <motion.span
           initial={false}
           animate={{
-            width: hovered ? "auto" : 0,
             opacity: hovered ? 1 : 0,
-            marginLeft: hovered ? 6 : 0,
+            width: hovered ? "auto" : 0,
           }}
           transition={{ duration: 0.25, ease: "easeInOut" }}
           className="overflow-hidden whitespace-nowrap text-xs text-white font-medium"
