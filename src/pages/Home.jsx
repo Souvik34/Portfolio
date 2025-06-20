@@ -10,7 +10,7 @@ import TechStack from "../components/sections/Techstack";
 import Contact from "../pages/Contact"
 import { Calendar } from "lucide-react"; 
 import Projects from "../pages/Projects";
-import Highlights from "../c../components/ui/GithubStats
+import Highlights from "../components/sections/Highlights";
 import GitHubStats from "../components/ui/GithubStats";
 export default function Home() {
   return (
