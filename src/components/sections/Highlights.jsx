@@ -7,7 +7,7 @@ const careerHighlights = [{
     title: "TechFiesta 2k24 Winner",
     subtitle: "1st Place",
     logo: "/tf.png",
-    description: "Built a decentralized medical record system in 24 hours.",
+    description: "Built a expense tracker system.",
     link: "#",
   },
   {
@@ -15,7 +15,7 @@ const careerHighlights = [{
     title: "Hack4Bengal Finalist",
     subtitle: "Eastern India's Largest Hackathon",
     logo: "/h4b.jpg",
-    description: "Finalist among 1000+ teams. Built a Smart Agri Monitoring System.",
+    description: "Finalist among 1000+ teams. Built Second Innings.",
     link: "#",
   },
   {
