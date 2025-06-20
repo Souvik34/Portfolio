@@ -10,8 +10,8 @@ import TechStack from "../components/sections/Techstack";
 import Contact from "../pages/Contact"
 import { Calendar } from "lucide-react"; 
 import Projects from "../pages/Projects";
-import GitHubCalendar from "../components/ui/GitHubCalendar";
-import Highlights from "../components/sections/Highlights";
+import Highlights from "../c../components/ui/GithubStats
+import GitHubStats from "../components/ui/GithubStats";
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-zinc-900 dark:bg-zinc-950 dark:text-white transition-colors duration-300">
@@ -144,7 +144,7 @@ export default function Home() {
       My Contributions
     </span>
   </div>
-  <GitHubCalendar />
+  <GitHubStats />
 
      {/* Get in Touch Section */}
 <section
